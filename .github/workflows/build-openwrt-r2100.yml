@@ -34,6 +34,21 @@ jobs:
     - name: Checkout
       uses: actions/checkout@main
 
+    - name: Check Server Performance
+      run: |
+        echo "warning ⚠"
+        echo "The distribution server performance is limited. If there are too many plug -ins, be sure to pay attention to the CPU performance！"
+        echo -e "Known CPU model (order order): 7763，8370C，8272CL，8171M，E5-2673\n"
+        echo "--------------------------CPU Info--------------------------"
+        echo "CPU physical quantity: $(cat /proc/cpuinfo | grep "physical id" | sort | uniq | wc -l)"
+        echo "CPU core quantity: $(nproc)"
+        echo -e "CPU model information:$(cat /proc/cpuinfo | grep -m1 name | awk -F: '{print $2}')\n"
+        echo "--------------------------Memory information--------------------------"
+        echo "Detailed information of installed memory:"
+        echo -e "$(sudo lshw -short -C memory | grep GiB)\n"
+        echo "--------------------------Hard disk information--------------------------"
+        echo "Number of hard disks: $(ls /dev/sd* | grep -v [1-9] | wc -l)" && df -hT
+
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
@@ -88,7 +103,7 @@ jobs:
       id: compile
       run: |
         cd openwrt
-        echo -e "使用 $(nproc) 线程编译"
+        echo -e "use $(nproc) thread compilation"
         make -j$(nproc) || make -j1 || make -j1 V=s
         echo "::set-output name=status::success"
         grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
