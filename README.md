@@ -1,6 +1,7 @@
 # RedMi AND XIAOMI AC2100 OpenWrt
 
 # Plug -in
+```text
 luci-app-accesscontrol
 luci-app-arpbind
 luci-app-autoreboot
@@ -13,7 +14,6 @@ luci-app-nft-qos
 luci-app-nlbwmon
 luci-app-oaf
 luci-app-onliner
-luci-app-opkg
 luci-app-pushbot
 luci-app-ramfree
 luci-app-statistics
@@ -31,6 +31,7 @@ luci-theme-argon
 luci-theme-bootstrap
 luci-theme-material
 luci-theme-openwrt
+```
 
 # Actions-OpenWrt
 
