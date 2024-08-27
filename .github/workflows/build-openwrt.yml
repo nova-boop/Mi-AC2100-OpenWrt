@@ -34,10 +34,10 @@ on:
       config_file:
         description: 配置文件
         required: true
-        default: OpenWrt.config
+        default: OpenWrt-R2100.config
         type: choice
         options: 
-          - OpenWrt.config
+          - OpenWrt-R2100.config
           - LEDE.config
       custom_script1:
         description: feeds下载前执行
