@@ -38,6 +38,7 @@ on:
         type: choice
         options: 
           - OpenWrt-R2100.config
+          - OpenWrt-RM2100.config
           - LEDE.config
       custom_script1:
         description: feeds下载前执行
