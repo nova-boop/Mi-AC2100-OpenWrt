@@ -26,6 +26,7 @@ addFeeds(){
 # addFeeds custom https://github.com/kiddin9/openwrt-packages.git
 # addFeeds custom https://github.com/kenzok8/openwrt-packages.git
 addFeeds custom https://github.com/kenzok8/small-package.git
+addFeeds accesscontrol https://github.com/CrazyPegasus/luci-app-accesscontrol-plus.git
 
 # 添加软件包源
 # git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon  #新的argon主题 (custom已附带)
