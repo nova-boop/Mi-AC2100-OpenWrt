@@ -28,6 +28,11 @@ addFeeds(){
 addFeeds custom https://github.com/kenzok8/small-package.git
 addFeeds accesscontrol https://github.com/CrazyPegasus/luci-app-accesscontrol-plus.git
 
+# natmapt
+git clone --depth 1 --branch master --single-branch --no-checkout https://github.com/muink/openwrt-stuntman.git package/stuntman
+git clone --depth 1 --branch master --single-branch --no-checkout https://github.com/muink/luci-app-natmapt.git package/luci-app-natmapt
+
+
 # 添加软件包源
 # git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon  #新的argon主题 (custom已附带)
 # git clone --depth=1 https://github.com/llccd/openwrt-fullconenat.git package/openwrt-fullconenat #全锥形NAT (custom已附带)
