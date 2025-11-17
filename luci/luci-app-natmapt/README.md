@@ -26,6 +26,7 @@ TCP/UDP port mapping for full cone NAT
 1. [natmapt][]
 2. coreutils-timeout
 3. [stuntman-client][]
+4. [luci-app-natmapt][]
 
 ## How to install
 
@@ -69,6 +70,7 @@ make package/luci-app-natmapt/compile V=99
 [NATMap]: https://github.com/heiher/natmap
 [natmapt]: https://github.com/muink/openwrt-natmapt
 [stuntman-client]: https://github.com/muink/openwrt-stuntman
+[luci-app-natmapt]: https://github.com/muink/luci-app-natmapt
 
 ## License
 
