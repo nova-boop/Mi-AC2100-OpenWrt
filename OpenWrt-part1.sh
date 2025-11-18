@@ -30,8 +30,23 @@ addFeeds accesscontrol https://github.com/CrazyPegasus/luci-app-accesscontrol-pl
 
 # natmapt
 git clone --depth 1 --branch master --single-branch --no-checkout https://github.com/muink/openwrt-stuntman.git package/stuntman
-# git clone --depth 1 --branch master --single-branch --no-checkout https://github.com/muink/luci-app-natmapt.git package/luci-app-natmapt
+pushd package/stuntman
+umask 022
+git checkout
+popd
+
+git clone --depth 1 --branch master --single-branch --no-checkout https://github.com/muink/luci-app-natmapt.git package/luci-app-natmapt
+pushd package/luci-app-natmapt
+umask 022
+git checkout
+popd
+
 git clone --depth 1 --branch master --single-branch --no-checkout https://github.com/muink/openwrt-natmapt.git package/natmapt
+pushd package/natmapt
+umask 022
+git checkout
+popd
+
 
 # 添加软件包源
 # git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon  #新的argon主题 (custom已附带)
