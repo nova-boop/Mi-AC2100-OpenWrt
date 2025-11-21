@@ -1,4 +1,4 @@
-name: REDMI_AC2100_RM2100
+name: XIAOMI_REDMI_RM2100
 
 on:
   workflow_dispatch:
@@ -14,7 +14,7 @@ env:
   CACHE_TOOLCHAIN: false
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: REDMI_AC2100_RM2100
+  FIRMWARE_TAG: XIAOMI_REDMI_RM2100
   TZ: Asia/Shanghai
 
 jobs:
