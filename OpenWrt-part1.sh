@@ -52,3 +52,7 @@ popd
 # git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon  #新的argon主题 (custom已附带)
 # git clone --depth=1 https://github.com/llccd/openwrt-fullconenat.git package/openwrt-fullconenat #全锥形NAT (custom已附带)
 # git clone --depth=1 https://github.com/peter-tank/luci-app-fullconenat package/luci-app-fullconenat #全锥形NAT LUCI界面 (custom已附带)
+
+
+./scripts/feeds update -a
+rm -rf feeds/small/{luci-app-bypass,luci-app-ssr-plus}
