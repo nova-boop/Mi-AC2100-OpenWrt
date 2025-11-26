@@ -22,8 +22,5 @@
 # 修改 argon 为默认主题,可根据你喜欢的修改成其他的（不选择那些会自动改变为默认主题的主题才有效果）
 #sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
-# 报错修复
-ln -s /usr/bin/upx /workdir/openwrt/staging_dir/host/bin/
-
 #允许root用户编译
 export FORCE_UNSAFE_CONFIGURE=1
