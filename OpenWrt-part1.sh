@@ -55,4 +55,11 @@ popd
 
 
 ./scripts/feeds update -a
+
+# remove 
+ls -lh feeds/small/
 rm -rf feeds/small/{luci-app-bypass,luci-app-ssr-plus}
+
+ls -lh feeds/custom/
+rm -rf feeds/custom/{luci-app-store} 
+
