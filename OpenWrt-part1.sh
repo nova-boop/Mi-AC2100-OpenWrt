@@ -32,8 +32,7 @@ function git_sparse_clone() {
 # 添加 feed 源
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 # sed -i '$a src-git custom https://github.com/kiddin9/openwrt-packages.git;master' feeds.conf.default
-addFeeds accesscontrol https://github.com/CrazyPegasus/luci-app-accesscontrol-plus.git
-
+git_sparse_clone main https://github.com/CrazyPegasus/luci-app-accesscontrol-plus luci-app-accesscontrol-plus
 # 支持 turboacc
 # 不带 shortcut-fe
 curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh --no-sfe
