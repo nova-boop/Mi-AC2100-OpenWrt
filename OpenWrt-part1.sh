@@ -32,9 +32,6 @@ function git_sparse_clone() {
 # 添加 feed 源
 # sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 # sed -i '$a src-git custom https://github.com/kiddin9/openwrt-packages.git;master' feeds.conf.default
-# addFeeds custom https://github.com/kiddin9/openwrt-packages.git
-# addFeeds custom https://github.com/kenzok8/openwrt-packages.git
-addFeeds custom https://github.com/kenzok8/small-package.git
 addFeeds accesscontrol https://github.com/CrazyPegasus/luci-app-accesscontrol-plus.git
 
 # 支持 turboacc
