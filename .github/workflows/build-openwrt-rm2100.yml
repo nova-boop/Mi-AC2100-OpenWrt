@@ -91,8 +91,18 @@ jobs:
 
       - name: Generate Variables
         run: |
+
+          echo "ls $OPENWRT_PATH"
+          ls -lh $OPENWRT_PATH
+          
+          echo "ls $CONFIG_FILE"
+          ls -lh $CONFIG_FILE
+          
+          echo "\n "
+          
           cp $CONFIG_FILE $OPENWRT_PATH/.config
           cd $OPENWRT_PATH
+          
           make defconfig > /dev/null 2>&1
           SOURCE_REPO="$(echo $REPO_URL | awk -F '/' '{print $(NF)}')"
           echo "SOURCE_REPO=$SOURCE_REPO" >> $GITHUB_ENV
