@@ -8,7 +8,7 @@ on:
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt.git
   REPO_BRANCH: master
-  CONFIG_FILE: OPENWRT-RM2100.config
+  CONFIG_FILE: OpenWrt-RM2100.config
   DIY_P1_SH: OpenWrt-part1.sh
   DIY_P2_SH: OpenWrt-part2.sh
   CACHE_TOOLCHAIN: false
@@ -91,12 +91,6 @@ jobs:
 
     - name: Generate Variables
       run: |
-        
-        echo "OPENWRT_PATH ： $OPENWRT_PATH"
-        echo "CONFIG_FILE ： $CONFIG_FILE"
-        ls $OPENWRT_PATH
-        ls $CONFIG_FILE
-        
         cp $CONFIG_FILE $OPENWRT_PATH/.config
         cd $OPENWRT_PATH
         make defconfig > /dev/null 2>&1
