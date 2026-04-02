@@ -2,8 +2,8 @@ name: XIAOMI_REDMI_RM2100
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: 0 19 * * *
+#  schedule:
+#    - cron: 0 19 * * *
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt.git
