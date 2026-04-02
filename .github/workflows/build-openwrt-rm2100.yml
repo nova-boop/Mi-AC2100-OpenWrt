@@ -57,13 +57,13 @@ jobs:
           libglib2.0-dev libgmp-dev libltdl-dev libmpc-dev libmpfr-dev libncurses-dev libpython3-dev \
           libreadline-dev libssl-dev libtool libyaml-dev libz-dev lld llvm lrzsz mkisofs msmtp nano \
           ninja-build p7zip p7zip-full patch pkgconf python3 python3-pip python3-ply python3-docutils \
-          python3-pyelftools python3-setuptools qemu-utils re2c rsync scons squashfs-tools subversion swig \
+          python3-pyelftools python3-setuptools python3-full qemu-utils re2c rsync scons squashfs-tools subversion swig \
           texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev zstd \
           libfuse-dev libncursesw5-dev jq libffi-dev libpcre2-dev libsqlite3-dev zip gzip upx tree \
           g++ file libpam-dev libev-dev
           
           # 4. 
-          sudo apt-get install -y python3-setuptools
+          sudo ln -sf /usr/bin/python3 /usr/bin/python
           sudo apt-get install -y gcc-13 g++-13
           sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-13 100 --slave /usr/bin/g++ g++ /usr/bin/g++-13
           
@@ -99,9 +99,19 @@ jobs:
 
       - name: Generate Variables
         run: |
-          cp "$CONFIG_FILE" "$OPENWRT_PATH/.config"
-          cd "$OPENWRT_PATH"
-          make defconfig
+          cp $CONFIG_FILE $OPENWRT_PATH/.config
+          cd $OPENWRT_PATH
+          
+          # 1. 
+          ./scripts/diffconfig.sh > /dev/null 2>&1 || true
+          
+          # 2. 
+          if ! make defconfig; then
+            echo "❌ 预检查失败，正在尝试诊断详细原因..."
+            make prereq || true
+            exit 1
+          fi
+          
           SOURCE_REPO="$(echo $REPO_URL | awk -F '/' '{print $(NF)}')"
           echo "SOURCE_REPO=\"$(echo $REPO_URL | awk -F '/' '{print $(NF)}')\""
           echo "SOURCE_REPO=$SOURCE_REPO" >> $GITHUB_ENV
