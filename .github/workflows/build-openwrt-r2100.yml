@@ -99,17 +99,16 @@ jobs:
 
       - name: Generate Variables
         run: |
+          # 
+          [ -f $CONFIG_FILE ] || (echo "❌ 找不到配置文件: $CONFIG_FILE" && exit 1)
           cp $CONFIG_FILE $OPENWRT_PATH/.config
           cd $OPENWRT_PATH
           
-          # 1. 
-          ./scripts/diffconfig.sh > /dev/null 2>&1 || true
-          
-          # 2. 
+          # 
           if ! make defconfig; then
-            echo "❌ 预检查失败，正在尝试诊断详细原因..."
-            make prereq || true
-            exit 1
+              echo "❌ 预检查失败，开始输出详细错误原因："
+              make prereq V=s
+              exit 1
           fi
           
           SOURCE_REPO="$(echo $REPO_URL | awk -F '/' '{print $(NF)}')"
