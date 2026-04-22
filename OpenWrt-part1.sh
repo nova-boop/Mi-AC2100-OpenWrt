@@ -34,6 +34,9 @@ function git_sparse_clone() {
 # sed -i '$a src-git custom https://github.com/kiddin9/openwrt-packages.git;master' feeds.conf.default
 git_sparse_clone main https://github.com/CrazyPegasus/luci-app-accesscontrol-plus luci-app-accesscontrol-plus
 
+# turboacc
+curl -sSL https://raw.githubusercontent.com/mufeng05/turboacc/main/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
+
 # 关机
 git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
 
